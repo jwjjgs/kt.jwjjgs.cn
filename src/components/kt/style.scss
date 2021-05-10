@@ -1,0 +1,134 @@
+.kt {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  .kt-body {
+    width: 80%;
+    margin: 24px auto;
+    .body {
+      height: 100px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      display: flex;
+      display: -webkit-flex;
+      justify-content: space-between;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .left,
+      .right {
+        width: 50%;
+        height: 80px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+
+      .left {
+        .mark {
+          padding-left: 12px;
+        }
+      }
+
+      .right {
+        .status {
+          padding: 12px 32px 0 0;
+          color: rgba(0, 0, 0, 0.6);
+          text-align: right;
+          i {
+            font-size: 14px;
+            &.cold {
+              color: #40c4ff;
+            }
+            &.hot {
+              color: #ff6e40;
+            }
+          }
+
+          .temp {
+            overflow: hidden;
+            display: inline-block;
+            font-size: 24px;
+            font-family: "led regular";
+            &:nth-child(1) {
+              text-align: right;
+              width: 40px;
+            }
+            &:nth-child(2) {
+              text-align: left;
+            }
+          }
+        }
+      }
+      .foot {
+        width: 100%;
+        text-align: center;
+        i {
+          font-size: 12px;
+        }
+      }
+    }
+    .wind {
+      height: 60px;
+      text-align: center;
+      display: flex;
+      display: -webkit-flex;
+      justify-content: space-between;
+      .line {
+        margin: 8px 40px;
+        height: 44px;
+        width: 0;
+        display: inline-block;
+        border: 2px solid #bdbdbd;
+        background-color: #bdbdbd;
+      }
+      :nth-child(1) {
+        transform: rotateZ(15deg);
+        -ms-transform: rotateZ(15deg); /* IE 9 */
+        -moz-transform: rotateZ(15deg); /* Firefox */
+        -webkit-transform: rotateZ(15deg); /* Safari 和 Chrome */
+        -o-transform: rotateZ(15deg); /* Opera */
+      }
+      :nth-child(3) {
+        transform: rotateZ(-15deg);
+        -ms-transform: rotateZ(-15deg); /* IE 9 */
+        -moz-transform: rotateZ(-15deg); /* Firefox */
+        -webkit-transform: rotateZ(-15deg); /* Safari 和 Chrome */
+        -o-transform: rotateZ(-15deg); /* Opera */
+      }
+    }
+  }
+  .kt-control {
+    position: absolute;
+    left: 0;
+    bottom: 80px;
+    width: 100%;
+    text-align: center;
+    i {
+      font-size: 16px;
+    }
+    .control1 {
+      i {
+        color: #fff;
+      }
+    }
+    button {
+      margin: 4px;
+    }
+  }
+  * {
+    transition: all 1s;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+  }
+  .kt-github {
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+}
