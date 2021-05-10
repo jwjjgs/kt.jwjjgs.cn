@@ -9,6 +9,7 @@ const playMusic = (src, isLoop = false) => {
   if (isLoop) {
     audio.loop = true;
   }
+  audio.preload = "auto";
   audio.autoplay = true;
   return audio;
 };
@@ -22,7 +23,8 @@ export default memo(function JKT() {
   });
 
   useEffect(() => {
-    audio.volume = data.isOpen ? 1 : 0;
+    if (!data.isOpen) audio.pause();
+    else audio.play();
   }, [data.isOpen]);
 
   const handleOpen = () => {
