@@ -103,7 +103,7 @@
   .kt-control {
     position: absolute;
     left: 0;
-    bottom: 80px;
+    bottom: 120px;
     width: 100%;
     text-align: center;
     i {
@@ -116,6 +116,7 @@
     }
     button {
       margin: 4px;
+      padding: 24px;
     }
   }
   * {
