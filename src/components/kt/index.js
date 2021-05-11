@@ -18,7 +18,7 @@ const audio = playMusic(audioWind, true);
 export default memo(function JKT() {
   const [data, setData] = useState({
     isOpen: false,
-    mode: false, //true 制冷 false 制热
+    mode: true, //true 制冷 false 制热
     temp: 24,
   });
 
@@ -46,11 +46,17 @@ export default memo(function JKT() {
   const handleUp = () => {
     playMusic(audioClick);
     if (!data.isOpen) return;
+    //制冷上限
+    if (data.mode && data.temp > 30) return;
     setData((data) => ({ ...data, temp: data.temp + 1 }));
   };
   const handleDown = () => {
     playMusic(audioClick);
     if (!data.isOpen) return;
+    //制热下限
+    if (!data.mode && data.temp < 16) return;
+    //制冷下限 不能低于绝对零度
+    if (data.mode && data.temp < -273) return;
     setData((data) => ({ ...data, temp: data.temp - 1 }));
   };
 
