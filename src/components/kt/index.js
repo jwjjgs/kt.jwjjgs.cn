@@ -36,27 +36,27 @@ export default memo(function JKT() {
   const handleCold = () => {
     playMusic(audioClick);
     if (!data.isOpen) return;
-    setData((data) => ({ ...data, mode: true }));
+    setData((data) => ({ ...data, mode: true, temp: 16 }));
   };
   const handleHot = () => {
     playMusic(audioClick);
     if (!data.isOpen) return;
-    setData((data) => ({ ...data, mode: false }));
+    setData((data) => ({ ...data, mode: false, temp: 24 }));
   };
   const handleUp = () => {
     playMusic(audioClick);
     if (!data.isOpen) return;
     //制冷上限
-    if (data.mode && data.temp > 30) return;
+    if (data.mode && data.temp >= 30) return;
     setData((data) => ({ ...data, temp: data.temp + 1 }));
   };
   const handleDown = () => {
     playMusic(audioClick);
     if (!data.isOpen) return;
     //制热下限
-    if (!data.mode && data.temp < 16) return;
+    if (!data.mode && data.temp <= 16) return;
     //制冷下限 不能低于绝对零度
-    if (data.mode && data.temp < -273) return;
+    if (data.mode && data.temp <= -273) return;
     setData((data) => ({ ...data, temp: data.temp - 1 }));
   };
 
