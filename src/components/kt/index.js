@@ -21,7 +21,7 @@ export default memo(function JKT() {
     mode: true, //true 制冷 false 制热
     temp: 16,
   });
-
+ 
   useEffect(() => {
     if (!data.isOpen) audio.pause();
     else audio.play();
