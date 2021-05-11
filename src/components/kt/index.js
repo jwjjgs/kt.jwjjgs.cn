@@ -19,7 +19,7 @@ export default memo(function JKT() {
   const [data, setData] = useState({
     isOpen: false,
     mode: true, //true 制冷 false 制热
-    temp: 24,
+    temp: 16,
   });
 
   useEffect(() => {
