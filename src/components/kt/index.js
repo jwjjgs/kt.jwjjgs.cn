@@ -5,12 +5,17 @@ import audioWind from "../../assets/audio/wind.mp3";
 
 /* 音效过渡 */
 const playMusic = (src, isLoop = false) => {
-  const audio = new Audio(src);
+  const audio = new Audio();
   if (isLoop) {
     audio.loop = true;
   }
+  /* 解决在ios上无法播放 */
+  audio.play();
+  audio.pause();
+
   audio.preload = "auto";
   audio.autoplay = true;
+  audio.src = src;
   return audio;
 };
 const audio = playMusic(audioWind, true);
@@ -21,7 +26,7 @@ export default memo(function JKT() {
     mode: true, //true 制冷 false 制热
     temp: 16,
   });
- 
+
   useEffect(() => {
     if (!data.isOpen) audio.pause();
     else audio.play();
